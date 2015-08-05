@@ -1,0 +1,32 @@
+<script>
+    angular
+            .module('example')
+            .controller('GettingStarted2Controller', function ($scope, supersonic) {
+
+                $scope.openView = function(){
+                    supersonic.ui.views.find('learn-more').then(function(view){
+                        supersonic.ui.layers.push(view).then(function(){
+                            alert('Success, now try the other tab');
+                        }, function(error){
+                            alert('The app is now frozen.\n\n' + error);
+                        });
+                    }, function(error){
+                        alert('Error: ' + error);
+                    });
+                };
+            });
+</script>
+<div class="padding" ng-controller="GettingStarted2Controller">
+
+    <super-navbar>
+        <super-navbar-title>
+            Freeze!
+        </super-navbar-title>
+    </super-navbar>
+    
+    <p>Make sure you've opened the view from the other tab first.</p>
+    <button ng-click="openView()">Tap me to open the pre-loaded view again</button>
+    
+
+</div>
+

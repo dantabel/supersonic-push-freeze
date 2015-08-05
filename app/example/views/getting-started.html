@@ -1,0 +1,34 @@
+<script>
+    angular
+            .module('example')
+            .controller('GettingStartedController', function ($scope, supersonic) {
+
+                $scope.openView = function(){
+                    supersonic.ui.views.find('learn-more').then(function(view){
+                        supersonic.ui.layers.push(view).then(function(){
+                            alert('Success, now try the other tab');
+                        }, function(error){
+                            alert('Error: ' + error);
+                        });
+                    }, function(error){
+                        alert('Error: ' + error);
+                    });
+                };
+            });
+</script>
+<div class="padding" ng-controller="GettingStartedController">
+
+    <super-navbar>
+        <super-navbar-title>
+            Freeze!
+        </super-navbar-title>
+    </super-navbar>
+    
+    <p>This is an example of how the app completely freezes on Android after trying to push the same pre-loaded view twice.</p>
+    <p>Try opening the view below, then open it again on the other tab to freeze the app.</p>
+
+    <button ng-click="openView()">Tap me to open a pre-loaded view</button>
+    <p>Then go to the next tab and open the same view.</p>
+
+</div>
+

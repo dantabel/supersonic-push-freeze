@@ -1,0 +1,5 @@
+This is an example of how the app completely freezes on Android after trying to 
+push the same pre-loaded view twice.
+
+Try tapping the button to open the pre-loaded view on the first tab, then open 
+it again on the other tab to freeze the app.
